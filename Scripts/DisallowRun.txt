@@ -1,0 +1,7 @@
+MicrosoftEdgeUpdate.exe
+ctfmon.exe
+mobsync.exe
+wermgr.exe
+WerFault.exe
+WerFaultSecure.exe
+MoUsoCoreWorker.exe
