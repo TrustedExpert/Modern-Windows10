@@ -1,0 +1,1514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<unattend xmlns="urn:schemas-microsoft-com:unattend" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
+	<!--https://schneegans.de/windows/unattend-generator/?LanguageMode=Unattended&UILanguage=en-US&Locale=en-US&Keyboard=00000409&GeoLocation=244&ProcessorArchitecture=amd64&ComputerNameMode=Random&CompactOsMode=Default&TimeZoneMode=Implicit&PartitionMode=Interactive&DiskAssertionMode=Skip&WindowsEditionMode=Custom&ProductKey=M7XTQ-FN8P6-TTKYV-9D4CC-J462D&InstallFromMode=Automatic&PEMode=Default&UserAccountMode=Unattended&AccountName0=Admin&AccountDisplayName0=&AccountPassword0=&AccountGroup0=Administrators&AccountName1=User&AccountDisplayName1=&AccountPassword1=&AccountGroup1=Users&AutoLogonMode=Own&PasswordExpirationMode=Unlimited&LockoutMode=Default&HideFiles=None&TaskbarSearch=Box&TaskbarIconsMode=Default&StartTilesMode=Default&StartPinsMode=Default&DisableDefender=true&DisableUac=true&DisableSmartScreen=true&DisableFastStartup=true&EnableLongPaths=true&DisableLastAccess=true&DisableAppSuggestions=true&HideEdgeFre=true&EffectsMode=Custom&FontSmoothing=true&DesktopIconsMode=Custom&IconThisPC=true&StartFoldersMode=Default&WifiMode=Interactive&ExpressSettings=DisableAll&KeysMode=Skip&StickyKeysMode=Disabled&ColorMode=Default&WallpaperMode=Default&LockScreenMode=Default&SystemScript0=bcdedit+%2Fset+nointegritychecks+ON%0D%0Abcdedit+%2Fset+loadoptions+DISABLE_INTEGRITY_CHECKS%0D%0Abcdedit+%2Fset+TESTSIGNING+ON%0D%0A&SystemScriptType0=Cmd&SystemScript2=Windows+Registry+Editor+Version+5.00%0D%0A%0D%0A%3Bdelete+%22share%22+from+context+menu%0D%0A%0D%0A%5B-HKEY_CLASSES_ROOT%5C*%5Cshellex%5CContextMenuHandlers%5CModernSharing%5D%0D%0A%0D%0A%3B+Delete+Previous+Versions+from+the+Context+Menu%0D%0A%5B-HKEY_CLASSES_ROOT%5CAllFilesystemObjects%5Cshellex%5CContextMenuHandlers%5C%7B596AB062-B4D2-4215-9F74-E9109B0A8153%7D%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CCLSID%5C%7B450D8FBA-AD25-11D0-98A8-0800361B1103%7D%5Cshellex%5CContextMenuHandlers%5C%7B596AB062-B4D2-4215-9F74-E9109B0A8153%7D%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CDirectory%5Cshellex%5CContextMenuHandlers%5C%7B596AB062-B4D2-4215-9F74-E9109B0A8153%7D%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CDrive%5Cshellex%5CContextMenuHandlers%5C%7B596AB062-B4D2-4215-9F74-E9109B0A8153%7D%5D%0D%0A%0D%0A%3Bremove+%22pin+to+start%22+from+context+menu%0D%0A%0D%0A%5B-HKEY_CLASSES_ROOT%5CFolder%5Cshellex%5CContextMenuHandlers%5CPintoStartScreen%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Cexefile%5Cshellex%5CContextMenuHandlers%5CPintoStartScreen%5D%0D%0A%0D%0A%3B+Context+Menu+entries+to+use+RunAsTI+-+lean+and+mean+snippet+by+AveYo%2C+2018-2022+%0D%0A%3B+%5BFEATURES%5D%0D%0A%3B+-+innovative+HKCU+load%2C+no+need+for+reg+load+%2F+unload+ping-pong%3B+programs+get+the+user+profile%0D%0A%3B+-+sets+ownership+privileges%2C+high+priority%2C+and+explorer+support%3B+get+System+if+TI+unavailable++++++++%0D%0A%3B+-+accepts+special+characters+in+paths+for+which+default+run+as+administrator+fails%0D%0A%3B+-+show+on+the+new+11+contextmenu+via+whitelisted+id%3B+plenty+other+available%2C+fuck+needing+an+app%21%0D%0A%3B+2022.04.07%3A+PowerShell+%2F+Terminal+here+%28if+installed%2C+use+Terminal+as+TI%2C+else+use+PowerShell+as+TI%29%0D%0A%0D%0A%5B-HKEY_CLASSES_ROOT%5CRunAsTI%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Cbatfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Ccmdfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Cexefile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Cmscfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CMicrosoft.PowerShellScript.1%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5Cregfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CFolder%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%5B-HKEY_CLASSES_ROOT%5CDirectory%5Cbackground%5Cshell%5Cextract%5D%0D%0A%3B+To+remove+entries%2C+copy+paste+above+into+undo_RunAsTI.reg+file%2C+then+import+it%0D%0A%0D%0A%3B+RunAsTI+on+.bat%0D%0A%5BHKEY_CLASSES_ROOT%5Cbatfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Run+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5Cbatfile%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+RunAsTI+on+.cmd%0D%0A%5BHKEY_CLASSES_ROOT%5Ccmdfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Run+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5Ccmdfile%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+RunAsTI+on+.exe%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Run+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+RunAsTI+on+.msc%0D%0A%5BHKEY_CLASSES_ROOT%5Cmscfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Run+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5Cmscfile%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+RunAsTI+on+.ps1%0D%0A%5BHKEY_CLASSES_ROOT%5CMicrosoft.PowerShellScript.1%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Run+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5CMicrosoft.PowerShellScript.1%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+powershell+-nop+-c+iex%28%28gc+-lit+%27%25L%27%29-join%5Bchar%5D10%29%22%0D%0A%0D%0A%3B+RunAsTI+on+.reg%0D%0A%5BHKEY_CLASSES_ROOT%5Cregfile%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MUIVerb%22%3D%22Import+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5Cregfile%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+regedit+%2Fs+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+RunAsTI+on+Folder%0D%0A%5BHKEY_CLASSES_ROOT%5CFolder%5Cshell%5Csetdesktopwallpaper%5D%0D%0A%22MuiVerb%22%3D%22Open+as+trustedinstaller%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%22AppliesTo%22%3D%22NOT+System.ParsingName%3A%3D%5C%22%3A%3A%7B645FF040-5081-101B-9F08-00AA002F954E%7D%5C%22%22%0D%0A%5BHKEY_CLASSES_ROOT%5CFolder%5Cshell%5Csetdesktopwallpaper%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+%5C%22%25L%5C%22%22%0D%0A%0D%0A%3B+Open+Terminal+or+Powershell+as+trustedinstaller+here+-+can+spawn+another+terminal+with%3A+cmd+%2Fc+%24env%3Awt%0D%0A%5BHKEY_CLASSES_ROOT%5CDirectory%5Cbackground%5Cshell%5Cextract%5D%0D%0A%22MuiVerb%22%3D%22PowerShell+%2F+Terminal%22%0D%0A%22HasLUAShield%22%3D%22%22%0D%0A%22NoWorkingDirectory%22%3D%22%22%0D%0A%22Position%22%3D-%0D%0A%22Position%22%3D%22Middle%22%0D%0A%22Icon%22%3D%22powershell.exe%2C0%22%0D%0A%5BHKEY_CLASSES_ROOT%5CDirectory%5Cbackground%5Cshell%5Cextract%5Ccommand%5D%0D%0A%40%3D%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe+-win+1+-nop+-c+iex%28%2810..40%7C%25%25%7B%28gp+%27Registry%3A%3AHKCR%5C%5CRunAsTI%27+%24_+-ea+0%29.%24_%7D%29-join%5Bchar%5D10%29%3B+%23+%2D%2D%25%25+cmd+%2Fc+pushd+%5C%22%25V%5C%22+%26+start+%5C%22RunAsTI%5C%22+%25%25wt%25%25%22%0D%0A%0D%0A%3B+RunAsTI+function%0D%0A%5BHKEY_CLASSES_ROOT%5CRunAsTI%5D%0D%0A%2210%22%3D%22function+RunAsTI+%28%24cmd%2C%24arg%29+%7B+%24id%3D%27RunAsTI%27%3B+%24key%3D%5C%22Registry%3A%3AHKU%5C%5C%24%28%28%28whoami+%2Fuser%29-split%27+%27%29%5B-1%5D%29%5C%5CVolatile+Environment%5C%22%3B+%24code%3D%40%27%22%0D%0A%2211%22%3D%22+%24I%3D%5Bint32%5D%3B+%24M%3D%24I.module.gettype%28%5C%22System.Runtime.Interop%60Services.Mar%60shal%5C%22%29%3B+%24P%3D%24I.module.gettype%28%5C%22System.Int%60Ptr%5C%22%29%3B+%24S%3D%5Bstring%5D%22%0D%0A%2212%22%3D%22+%24D%3D%40%28%29%3B+%24T%3D%40%28%29%3B+%24DM%3D%5BAppDomain%5D%3A%3ACurrentDomain.%5C%22DefineDynami%60cAssembly%5C%22%281%2C1%29.%5C%22DefineDynami%60cModule%5C%22%281%29%3B+%24Z%3D%5Buintptr%5D%3A%3Asize+%22%0D%0A%2213%22%3D%22+0..5%7C%25+%7B%24D+%2B%3D+%24DM.%5C%22Defin%60eType%5C%22%28%5C%22AveYo_%24_%5C%22%2C1179913%2C%5BValueType%5D%29%7D%3B+%24D+%2B%3D+%5Buintptr%5D%3B+4..6%7C%25+%7B%24D+%2B%3D+%24D%5B%24_%5D.%5C%22MakeByR%60efType%5C%22%28%29%7D%22%0D%0A%2214%22%3D%22+%24F%3D%27kernel%27%2C%27advapi%27%2C%27advapi%27%2C+%28%24S%2C%24S%2C%24I%2C%24I%2C%24I%2C%24I%2C%24I%2C%24S%2C%24D%5B7%5D%2C%24D%5B8%5D%29%2C+%28%5Buintptr%5D%2C%24S%2C%24I%2C%24I%2C%24D%5B9%5D%29%2C%28%5Buintptr%5D%2C%24S%2C%24I%2C%24I%2C%5Bbyte%5B%5D%5D%2C%24I%29%22%0D%0A%2215%22%3D%22+0..2%7C%25+%7B%249%3D%24D%5B0%5D.%5C%22DefinePInvok%60eMethod%5C%22%28%28%27CreateProcess%27%2C%27RegOpenKeyEx%27%2C%27RegSetValueEx%27%29%5B%24_%5D%2C%24F%5B%24_%5D%2B%2732%27%2C8214%2C1%2C%24S%2C%24F%5B%24_%2B3%5D%2C1%2C4%29%7D%22%0D%0A%2216%22%3D%22+%24DF%3D%28%24P%2C%24I%2C%24P%29%2C%28%24I%2C%24I%2C%24I%2C%24I%2C%24P%2C%24D%5B1%5D%29%2C%28%24I%2C%24S%2C%24S%2C%24S%2C%24I%2C%24I%2C%24I%2C%24I%2C%24I%2C%24I%2C%24I%2C%24I%2C%5Bint16%5D%2C%5Bint16%5D%2C%24P%2C%24P%2C%24P%2C%24P%29%2C%28%24D%5B3%5D%2C%24P%29%2C%28%24P%2C%24P%2C%24I%2C%24I%29%22%0D%0A%2217%22%3D%22+1..5%7C%25+%7B%24k%3D%24_%3B+%24n%3D1%3B+%24DF%5B%24_-1%5D%7C%25+%7B%249%3D%24D%5B%24k%5D.%5C%22Defin%60eField%5C%22%28%27f%27+%2B+%24n%2B%2B%2C+%24_%2C+6%29%7D%7D%3B+0..5%7C%25+%7B%24T+%2B%3D+%24D%5B%24_%5D.%5C%22Creat%60eType%5C%22%28%29%7D%22%0D%0A%2218%22%3D%22+0..5%7C%25+%7Bnv+%5C%22A%24_%5C%22+%28%5BActivator%5D%3A%3ACreateInstance%28%24T%5B%24_%5D%29%29+-fo%7D%3B+function+F+%28%241%2C%242%29+%7B%24T%5B0%5D.%5C%22G%60etMethod%5C%22%28%241%29.invoke%280%2C%242%29%7D%22%0D%0A%2219%22%3D%22+%24TI%3D%28whoami+%2Fgroups%29-like%27*1-16-16384*%27%3B+%24As%3D0%3B+if%28%21%24cmd%29+%7B%24cmd%3D%27control%27%3B%24arg%3D%27admintools%27%7D%3B+if+%28%24cmd-eq%27This+PC%27%29%7B%24cmd%3D%27file%3A%27%7D%22%0D%0A%2220%22%3D%22+if+%28%21%24TI%29+%7B%27TrustedInstaller%27%2C%27lsass%27%2C%27winlogon%27%7C%25+%7Bif+%28%21%24As%29+%7B%249%3Dsc.exe+start+%24_%3B+%24As%3D%40%28get-process+-name+%24_+-ea+0%7C%25+%7B%24_%7D%29%5B0%5D%7D%7D%22%0D%0A%2221%22%3D%22+function+M+%28%241%2C%242%2C%243%29+%7B%24M.%5C%22G%60etMethod%5C%22%28%241%2C%5Btype%5B%5D%5D%242%29.invoke%280%2C%243%29%7D%3B+%24H%3D%40%28%29%3B+%24Z%2C%284*%24Z%2B16%29%7C%25+%7B%24H+%2B%3D+M+%5C%22AllocHG%60lobal%5C%22+%24I+%24_%7D%22%0D%0A%2222%22%3D%22+M+%5C%22WriteInt%60Ptr%5C%22+%28%24P%2C%24P%29+%28%24H%5B0%5D%2C%24As.Handle%29%3B+%24A1.f1%3D131072%3B+%24A1.f2%3D%24Z%3B+%24A1.f3%3D%24H%5B0%5D%3B+%24A2.f1%3D1%3B+%24A2.f2%3D1%3B+%24A2.f3%3D1%3B+%24A2.f4%3D1%22%0D%0A%2223%22%3D%22+%24A2.f6%3D%24A1%3B+%24A3.f1%3D10*%24Z%2B32%3B+%24A4.f1%3D%24A3%3B+%24A4.f2%3D%24H%5B1%5D%3B+M+%5C%22StructureTo%60Ptr%5C%22+%28%24D%5B2%5D%2C%24P%2C%5Bboolean%5D%29+%28%28%24A2+-as+%24D%5B2%5D%29%2C%24A4.f2%2C%24false%29%22%0D%0A%2224%22%3D%22+%24Run%3D%40%28%24null%2C+%5C%22powershell+-win+1+-nop+-c+iex+%60%24env%3AR%3B+%23+%24id%5C%22%2C+0%2C+0%2C+0%2C+0x0E080600%2C+0%2C+%24null%2C+%28%24A4+-as+%24T%5B4%5D%29%2C+%28%24A5+-as+%24T%5B5%5D%29%29%22%0D%0A%2225%22%3D%22+F+%27CreateProcess%27+%24Run%3B+return%7D%3B+%24env%3AR%3D%27%27%3B+rp+%24key+%24id+-force%3B+%24priv%3D%5Bdiagnostics.process%5D.%5C%22GetM%60ember%5C%22%28%27SetPrivilege%27%2C42%29%5B0%5D%22%0D%0A%2226%22%3D%22+%27SeSecurityPrivilege%27%2C%27SeTakeOwnershipPrivilege%27%2C%27SeBackupPrivilege%27%2C%27SeRestorePrivilege%27+%7C%25+%7B%24priv.Invoke%28%24null%2C+%40%28%5C%22%24_%5C%22%2C2%29%29%7D%22%0D%0A%2227%22%3D%22+%24HKU%3D%5Buintptr%5D%5Buint32%5D2147483651%3B+%24NT%3D%27S-1-5-18%27%3B+%24reg%3D%28%24HKU%2C%24NT%2C8%2C2%2C%28%24HKU+-as+%24D%5B9%5D%29%29%3B+F+%27RegOpenKeyEx%27+%24reg%3B+%24LNK%3D%24reg%5B4%5D%22%0D%0A%2228%22%3D%22+function+L+%28%241%2C%242%2C%243%29+%7Bsp+%27Registry%3A%3AHKCR%5C%5CAppID%5C%5C%7BCDCBCFCA-3CDC-436f-A4E2-0E02075250C2%7D%27+%27RunAs%27+%243+-force+-ea+0%22%0D%0A%2229%22%3D%22++%24b%3D%5BText.Encoding%5D%3A%3AUnicode.GetBytes%28%5C%22%5C%5CRegistry%5C%5CUser%5C%5C%241%5C%22%29%3B+F+%27RegSetValueEx%27+%40%28%242%2C%27SymbolicLinkValue%27%2C0%2C6%2C%5Bbyte%5B%5D%5D%24b%2C%24b.Length%29%7D%22%0D%0A%2230%22%3D%22+function+Q+%7B%5Bint%5D%28gwmi+win32_process+-filter+%27name%3D%5C%22explorer.exe%5C%22%27%7C%3F%7B%24_.getownersid%28%29.sid-eq%24NT%7D%7Cselect+-last+1%29.ProcessId%7D%22%0D%0A%2231%22%3D%22+%24env%3Awt%3D%27powershell%27%3B+dir+%5C%22%24env%3AProgramFiles%5C%5CWindowsApps%5C%5CMicrosoft.WindowsTerminal*%5C%5Cwt.exe%5C%22+-rec%7C%25+%7B%24env%3Awt%3D%27%5C%22%27%2B%24_.FullName%2B%27%5C%22+%5C%22-d+.%5C%22%27%7D%22%0D%0A%2232%22%3D%22+%2411bug%3D%28%24%28%28gwmi+Win32_OperatingSystem%29.BuildNumber%29-eq%2722000%27%29-AND%28%28%24cmd-eq%27file%3A%27%29-OR%28test-path+-lit+%24cmd+-PathType+Container%29%29%22%0D%0A%2233%22%3D%22+if+%28%2411bug%29+%7B%27System.Windows.Forms%27%2C%27Microsoft.VisualBasic%27+%7C%25+%7B%249%3D%5BReflection.Assembly%5D%3A%3ALoadWithPartialName%28%5C%22%27%24_%5C%22%29%7D%7D%22%0D%0A%2234%22%3D%22+if+%28%2411bug%29+%7B%24path%3D%27%5E%28l%29%27%2B%24%28%24cmd+-replace+%27%28%5B%5C%5C%2B%5C%5C%5E%5C%5C%25%5C%5C%7E%5C%5C%28%5C%5C%29%5C%5C%5B%5C%5C%5D%5D%29%27%2C%27%7B%241%7D%27%29%2B%27%7BENTER%7D%27%3B+%24cmd%3D%27control.exe%27%3B+%24arg%3D%27admintools%27%7D%22%0D%0A%2235%22%3D%22+L+%28%24key-split%27%5C%5C%5C%5C%27%29%5B1%5D+%24LNK+%27%27%3B+%24R%3D%5Bdiagnostics.process%5D%3A%3Astart%28%24cmd%2C%24arg%29%3B+if+%28%24R%29+%7B%24R.PriorityClass%3D%27High%27%3B+%24R.WaitForExit%28%29%7D%22%0D%0A%2236%22%3D%22+if+%28%2411bug%29+%7B%24w%3D0%3B+do+%7Bif%28%24w-gt40%29%7Bbreak%7D%3B+sleep+-mi+250%3B%24w%2B%2B%7D+until+%28Q%29%3B+%5BMicrosoft.VisualBasic.Interaction%5D%3A%3AAppActivate%28%24%28Q%29%29%7D%22%0D%0A%2237%22%3D%22+if+%28%2411bug%29+%7B%5BWindows.Forms.SendKeys%5D%3A%3ASendWait%28%24path%29%7D%3B+do+%7Bsleep+7%7D+while%28Q%29%3B+L+%27.Default%27+%24LNK+%27Interactive+User%27%22%0D%0A%2238%22%3D%22%27%40%3B+%24V%3D%27%27%3B%27cmd%27%2C%27arg%27%2C%27id%27%2C%27key%27%7C%25%7B%24V%2B%3D%5C%22%60n%60%24%24_%3D%27%24%28%24%28gv+%24_+-val%29-replace%5C%22%27%5C%22%2C%5C%22%27%27%5C%22%29%27%3B%5C%22%7D%3B+sp+%24key+%24id+%24%28%24V%2C%24code%29+-type+7+-force+-ea+0%22%0D%0A%2239%22%3D%22+start+powershell+-args+%5C%22-win+1+-nop+-c+%60n%24V+%60%24env%3AR%3D%28gi+%60%24key+-ea+0%29.getvalue%28%60%24id%29-join%27%27%3B+iex+%60%24env%3AR%5C%22+-verb+runas%22%0D%0A%2240%22%3D%22%7D%3B+%24A%3D%28%5Benvironment%5D%3A%3Acommandline-split%27-%5B-%5D%25%2B+%3F%27%2C2%29%5B1%5D-split%27%5C%22%28%5B%5E%5C%22%5D%2B%29%5C%22%7C%28%5B%5E+%5D%2B%29%27%2C2%7C%25%7B%24_.Trim%28%27+%5C%22%27%29%7D%3B+RunAsTI+%24A%5B1%5D+%24A%5B2%5D%3B+%23+AveYo%2C+2022.04.07%22%0D%0A%3B%0D%0A%0D%0A%3Bremove+%22pin+to+quick+access%22+from+context+menu%0D%0A%0D%0A%5B-HKEY_CLASSES_ROOT%5CFolder%5Cshell%5Cpintohome%5D%0D%0A%0D%0A%3B+Add+Copy+As+Path+to+the+Context+Menu%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5CAllfilesystemobjects%5Cshell%5Cwindows.copyaspath%5D%0D%0A%40%3D%22Copy+%26as+path%22%0D%0A%22Icon%22%3D%22imageres.dll%2C-5302%22%0D%0A%22InvokeCommandOnSelection%22%3Ddword%3A00000001%0D%0A%22VerbHandler%22%3D%22%7Bf3d06e7c-1e45-4a26-847e-f9fcdee59be0%7D%22%0D%0A%22VerbName%22%3D%22copyaspath%22%0D%0A%0D%0A%3B+Disable+DataSense%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CPolicyManager%5Cdefault%5CSettings%5CAllowDataSense%5D%0D%0A%22value%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CPolicyManager%5Ccurrent%5Cdevice%5CSettings%5D%0D%0A%22AllowDataSense%22%3Ddword%3A00000000%0D%0A%0D%0A%3BDisable+Diagnostic+Tracing%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CDiagnostics%5CPerformance%5D%0D%0A%22DisableDiagnosticTracing%22%3Ddword%3A00000001%0D%0A%0D%0A%3BDisable+Experimentation%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CPolicyManager%5Ccurrent%5Cdevice%5CSystem%5D%0D%0A%3B+Only+Use+Latest+CLR%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5C.NETFramework%5D%0D%0A%22OnlyUseLatestCLR%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+Group+Policy+Logging%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B0E28E245-9368-4853-AD84-6DA3BA35BB75%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B17D89FEC-5C44-4972-B12D-241CAEF74509%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B1A6364EB-776B-4120-ADE1-B63A406A76B5%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B3A0DBA37-F8B2-4356-83DE-3E90BD5C261F%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B5794DAFD-BE60-433f-88A2-1A31939AC01F%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B6232C319-91AC-4931-9385-E70C2B099F0E%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B6A4C88C6-C502-4f74-8F60-2CB23EDC24E2%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B7150F9BF-48AD-4da4-A49C-29EF4A8369BA%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B728EE579-943C-4519-9EF7-AB56765798ED%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B74EE6C03-5363-4554-B161-627540339CAB%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7B91FBB303-0CD5-4055-BF42-E512A681B325%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BA3F3E39B-5D83-4940-B954-28315B82F0A8%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BAADCED64-746C-4633-A97C-D61349046527%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BB087BE9D-ED37-454f-AF9C-04291E351182%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BBC75B1ED-5833-4858-9BB8-CBF0B166DF9D%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BC418DD9D-0D14-4efb-8FBF-CFE535C8FAC7%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BE47248BA-94CC-49c4-BBB5-9EB7F05183D0%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BE4F48E54-F38D-4884-BFB9-D4D2E5729C18%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BE5094040-C46C-4115-B030-04FB2E545B00%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BE62688F0-25FD-4c90-BFF5-F508B9D2E31F%7D%5D%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CGroup+Policy%5C%7BF9C77450-3A41-477E-9310-9ACD617BD9E3%7D%5D%0D%0A%22TraceLevel%22%3Ddword%3A00000000%0D%0A%22LogLevel%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CWOW6432Node%5CMicrosoft%5C.NETFramework%5D%0D%0A%22OnlyUseLatestCLR%22%3Ddword%3A00000001%0D%0A%22AllowExperimentation%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CAppModel%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CBluetoothSession%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CCellcore%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CCloudExperienceHostOobe%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CCShellCircular%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CDefenderApiLogger%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CDefenderAuditLogger%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CDiagLog%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CDiagtrack-Listener%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CFaceRecoTel%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CFaceUnlock%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CiclsClient%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CiclsProxy%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSocketHeciServer%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_CURRENT_USER%5CSystem%5CControlSet001%5CControl%5CWMI%5CAutoLogger%5CSQMLogger%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B017BA13C-9A55-4f1f-8200-323055AAC810%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B059F0F37-910E-4FF0-A7EE-AE8D49DD319B%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B093da50c-0bb9-4d7d-b95c-3bb9fcda5ee8%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B2a274310-42d5-4019-b816-e4b8c7abe95c%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B2ff3e6b7-cb90-4700-9621-443f389734ed%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B331c3b3a-2005-44c2-ac5e-77220c37d6b4%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B3e59a529-b0b3-4a11-8129-9ffe6bb46eb9%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B4214dcd2-7c33-4f74-9898-719ccceec20f%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B494e7a3d-8db9-4ec4-b43e-2844af6e38d6%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B61F044AF-9104-4CA5-81EE-CB6C51BB01AB%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B65d99466-7a8e-489c-b8e1-962bc945031e%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B7b563579-53c8-44e7-8236-0f87b9fe6594%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B9c205a39-1250-487d-abd7-e831c6290539%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7Ba0af438f-4431-41cb-a675-a265050ee947%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7Ba6ad76e3-867a-4635-91b3-4904ba6374d7%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7BCD9C6198-BF73-4106-803B-C17D26559018%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7BF5344219-87A4-4399-B14A-E59CD118ABB8%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CTpm%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CTPMProvisioningService%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CWdiContextLog%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CWiFiDriverIHVSession%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CWinPhoneCritical%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CHolographicDevice%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CMicrosoft-Windows-AssignedAccess-Trace%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CNBSMBLOGGER%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CReadyBoot%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CSQMLogger%5C%7B15CA44FF-4D7A-4BAA-BBA5-0998955E531E%7D%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5CControl%5CWMI%5CAutologger%5CWiFiDriverIHVSessionRepro%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet002%5CControl%5CWMI%5CAutologger%5CAutoLogger-Diagtrack-Listener%5D%0D%0A%22Start%22%3Ddword%3A00000000%0D%0A%22Enabled%22%3Ddword%3A00000000%0D%0A%22Status%22%3Ddword%3A00000000%0D%0A%0D%0A%3BDelete+Intel+Telemetry+Aggregator+Driver%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows+NT%5CCurrentVersion%5CSchedule%5CTaskCache%5CPlain%5C%7B7B65EBB8-BD4B-4EE0-90EA-5237AF103086%7D%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows+NT%5CCurrentVersion%5CSchedule%5CTaskCache%5CTasks%5C%7B7B65EBB8-BD4B-4EE0-90EA-5237AF103086%7D%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CSetup%5CPnpLockdownFiles%5C%25SystemRoot%25%2FSystem32%2Fdrivers%2FIntelTA.sys%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CSideBySide%5CWinners%5Camd64_dual_intelta.inf_31bf3856ad364e35_none_3994430e96793665%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CSideBySide%5CWinners%5Camd64_intelta.inf.resources_31bf3856ad364e35_en-us_652bbd3004f55722%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CServices%5CTelemetry%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CDriverDatabase%5CDeviceIds%5CPCI%5CVEN_8086%26DEV_9A0D%5D%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSystem%5CDriverDatabase%5CDeviceIds%5C%7B4d36e97d-e325-11ce-bfc1-08002be10318%7D%5D%0D%0A%22intelta.inf%22%3D-%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CDriverDatabase%5CDriverInfFiles%5Cintelta.inf%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CDriverDatabase%5CDriverPackages%5Cintelta.inf_amd64_ba962d801a22973c%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CDeviceReg%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CDFS%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CLanguageOverlay%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CMSMQ%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CPim%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CPoom%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CTermServLicensing%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CUnified+Store%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CUserData%5D%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CWindows+Error+Reporting%5D%0D%0A%22DontSendAdditionalData%22%3D-%0D%0A%22DontShowUI%22%3D-%0D%0A%22LoggingDisabled%22%3D-%0D%0A%22MachineID%22%3D-%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CWindows+Error+Reporting%5CExcludedApplications%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CWindows+Error+Reporting%5CWMR%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CXAML%5D%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CControl%5CClass%5C%7B4d36e972-e325-11ce-bfc1-08002be10318%7D%5D%0D%0A%22LastDeleteDate%22%3Dhex%283%29%3A4F%2C9A%2CB4%2CDE%2C12%2C14%2CDA%2C01%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CControl%5CClass%5C%7B4d36e972-e325-11ce-bfc1-08002be10318%7D%5C0000%5D%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CControl%5CDeviceContainers%5C%7B00000000-0000-0000-FFFF-FFFFFFFFFFFF%7D%5CBaseContainers%5C%7B00000000-0000-0000-FFFF-FFFFFFFFFFFF%7D%5D%0D%0A%22ROOT%5C%5CKDNIC%5C%5C0000%22%3D-%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CEnum%5CROOT%5CKDNIC%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CServices%5CEventLog%5CSystem%5Ckdnic%5D%0D%0A%0D%0A%5B-HKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CServices%5Ckdnic%5D%0D%0A%0D%0A%3B+Protected+Reg+Key.+No+Documentation+found+for+this+one+but+string+was+confirmed%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CDiagnostics%5CPerformance%5CSuspend%5D%0D%0A%22EnableForCEIPOnly%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+Core+Parking%0D%0A%5BHKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CControl%5CPower%5D%0D%0A%22CoreParkingDisabled%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSystem%5CControlSet001%5CControl%5CPower%5CPowerSettings%5C54533251-82be-4824-96c1-47b60b740d00%5C0cc5b647-c1df-4637-891a-dec35c318583%5D%0D%0A%22ValueMax%22%3Ddword%3A00000000%0D%0A%22ValueMin%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+IPV6%0D%0A%3B+FF+to+disable+all+IPv6+components%2C+except+the+IPv6+loopback+interface%2C+which+can%27t+be+deactivated.%0D%0A%3B+0x01++to+disable+IPv6+all+tunnel+interfaces.+These+include+Intra-Site+Automatic+Tunnel+Addressing+Protocol+%28ISATAP%29%2C+6to4%2C+and+Teredo.+If+you+have+a+IPv6+router%2C+then+you+want+to+choose+this+one.%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5CServices%5CTcpip6%5CParameters%5D%0D%0A%22DisabledComponents%22%3Ddword%3A000000ff%0D%0A%3B+Disable+Telemetry%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CDataCollection%5D%0D%0A%22AllowTelemetry%22%3Ddword%3A00000000%0D%0A%22DoNotShowFeedbackNotifications%22%3Ddword%3A00000001%0D%0A%22AllowDeviceNameInTelemetry%22%3Ddword%3A00000000%0D%0A%22LimitEnhancedDiagnosticDataWindowsAnalytics%22%3Ddword%3A00000000%0D%0A%22LimitDiagnosticLogCollection%22%3Ddword%3A00000001%0D%0A%22AllowCommercialDataPipeline%22%3Ddword%3A00000000%0D%0A%22MicrosoftEdgeDataOptIn%22%3Ddword%3A00000000%0D%0A%0D%0A%3BDisable+Compatability+Telemetry%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CAppCompat%5D%0D%0A%22AllowTelemetry%22%3Ddword%3A00000000%0D%0A%22SbEnable%22%3Ddword%3A00000000%0D%0A%22DisableWizard%22%3Ddword%3A00000001%0D%0A%22AITEnable%22%3Ddword%3A00000000%0D%0A%22DisableEngine%22%3Ddword%3A00000001%0D%0A%22DisableInventory%22%3Ddword%3A00000001%0D%0A%22DisablePCA%22%3Ddword%3A00000001%0D%0A%22DisablePcaUI%22%3Ddword%3A00000000%0D%0A%22DisableUAR%22%3Ddword%3A00000001%0D%0A%22VDMDisallowed%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+System+Settings%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CSystem%5D%0D%0A%22AllowClipboardHistory%22%3Ddword%3A00000000%0D%0A%22EnableActivityFeed%22%3Ddword%3A00000000%0D%0A%22PublishUserActivities%22%3Ddword%3A00000000%0D%0A%22UploadUserActivities%22%3Ddword%3A00000000%0D%0A%22AllowBlockingAppsAtShutdown%22%3Ddword%3A00000000%0D%0A%22EnableCdp%22%3Ddword%3A00000000%0D%0A%22EnableSmartScreen%22%3Ddword%3A00000000%0D%0A%22EnableFontProviders%22%3Ddword%3A00000000%0D%0A%22EnableAppUriHandlers%22%3Ddword%3A00000000%0D%0A%3BDisable+Windows+Tips%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CCloudContent%5D%0D%0A%22DisableWindowsConsumerFeatures%22%3Ddword%3A00000001%0D%0A%22DisableCloudOptimizedContent%22%3Ddword%3A00000001%0D%0A%22DisableTailoredExperiencesWithDiagnosticData%22%3Ddword%3A00000001%0D%0A%22DisableThirdPartySuggestions%22%3Ddword%3A00000001%0D%0A%22DisableSoftLanding%22%3Ddword%3A00000001%0D%0A%22DisableWindowsSpotlightFeatures%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+Performance+Counters%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+CLR+Data%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+CLR+Networking%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+CLR+Networking+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+Data+Provider+for+Oracle%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+Data+Provider+for+SqlServer%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NET+Memory+Cache+4.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5C.NETFramework%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CASP.NET_4.0.30319%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5Caspnet_state%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CBITS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CContentFilter%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CContentIndex%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CESENT%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CIntel+Storage+Counters%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CIPSec%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CISAPISearch%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CLsa%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CMSDTC%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CMSDTC+Bridge+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CMSDTC+Bridge+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CMSSCNTRS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CPerfDisk%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CPerfNet%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CPerfOS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CPerfProc%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5Crdyboost%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CRemoteAccess%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CServiceModelEndpoint+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CServiceModelOperation+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CServiceModelService+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CSMSvcHost+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CSMSvcHost+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CSpooler%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CTapiSrv%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CTcpip%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CTermService%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CUGatherer%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CUGTHRSVC%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5Cusbhub%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CWindows+Workflow+Foundation+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CWindows+Workflow+Foundation+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CWmiApRpl%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5Cservices%5CWSearchIdxPi%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+CLR+Data%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+CLR+Networking%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+CLR+Networking+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+Data+Provider+for+Oracle%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+Data+Provider+for+SqlServer%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NET+Memory+Cache+4.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5C.NETFramework%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CASP.NET_4.0.30319%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5Caspnet_state%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CBITS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CContentFilter%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CContentIndex%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CESENT%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CIntel+Storage+Counters%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CIPSec%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CISAPISearch%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CLsa%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CMSDTC%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CMSDTC+Bridge+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CMSDTC+Bridge+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CMSSCNTRS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CPerfDisk%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CPerfNet%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CPerfOS%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CPerfProc%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5Crdyboost%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CRemoteAccess%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CServiceModelEndpoint+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CServiceModelOperation+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CServiceModelService+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CSMSvcHost+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CSMSvcHost+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CSpooler%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CTapiSrv%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CTcpip%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CTermService%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CUGatherer%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CUGTHRSVC%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5Cusbhub%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CWindows+Workflow+Foundation+3.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CWindows+Workflow+Foundation+4.0.0.0%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CWmiApRpl%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CControlSet001%5Cservices%5CWSearchIdxPi%5CPerformance%5D%0D%0A%22Disable+Performance+Counters%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Block+Exe+file+with+Firewall%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5D%0D%0A%40%3D%22%22%0D%0A%22MUIVerb%22%3D%22Windows+Firewall%22%0D%0A%22icon%22%3D%22%25SystemRoot%25%5C%5Csystem32%5C%5CFirewallControlPanel.dll%2C0%22%0D%0A%22subcommands%22%3D%22%22%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5CShell%5D%0D%0A%40%3D%22%22%0D%0A%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5CShell%5Cblock%5D%0D%0A%40%3D%22%22%0D%0A%22MUIVerb%22%3D%22Block%22%0D%0A%22icon%22%3D%22%25SystemRoot%25%5C%5Csystem32%5C%5CFirewallControlPanel.dll%2C1%22%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5CShell%5Cblock%5Ccommand%5D%0D%0A%40%3D%22%5C%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe%5C%22+-Executionpolicy+ByPass+-WindowStyle+Hidden+-NoLogo+-Command+%5C%22start+powershell+-Verb+runas+-ArgumentList+%5C%5C%5C%22-NoLogo+-WindowStyle+Hidden+-command+%60%5C%5C%5C%22New-NetFirewallRule+-DisplayName+%28%5BSystem.IO.Path%5D%3A%3AGetFilenameWithoutExtension%28%27%251%27%29%29+-Name+%27%251%27+-Enabled+True+-Direction+Outbound+-Action+Block+-Program+%27%251%27%60%5C%5C%5C%22%5C%5C%5C%22%5C%22%22%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5CShell%5CRemove%5D%0D%0A%40%3D%22%22%0D%0A%22MUIVerb%22%3D%22Allow%22%0D%0A%22icon%22%3D%22%25SystemRoot%25%5C%5Csystem32%5C%5CFirewallControlPanel.dll%2C2%22%0D%0A%0D%0A%5BHKEY_CLASSES_ROOT%5Cexefile%5Cshell%5CWindowsFirewall%5CShell%5CRemove%5Ccommand%5D%0D%0A%40%3D%22%5C%22C%3A%5C%5CWindows%5C%5CSystem32%5C%5CWindowsPowerShell%5C%5Cv1.0%5C%5Cpowershell.exe%5C%22+-Executionpolicy+ByPass+-WindowStyle+Hidden+-NoLogo+-Command+%5C%22start+powershell+-Verb+runas+-ArgumentList+%5C%5C%5C%22-NoLogo+-WindowStyle+Hidden+-command+%60%5C%5C%5C%22Remove-NetFirewallRule+-Name+%27%251%27%60%5C%5C%5C%22%5C%5C%5C%22%5C%22%22%0D%0A%0D%0A%3B+Disable+Active+Probe+and+Passive+Polling%0D%0A%5BHKEY_LOCAL_MACHINE%5CSYSTEM%5CCurrentControlSet%5CServices%5CNlaSvc%5CParameters%5CInternet%5D%0D%0A%22EnableActiveProbing%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CNetworkConnectivityStatusIndicator%5D%0D%0A%22DisablePassivePolling%22%3Ddword%3A00000001%0D%0A%22NoActiveProbe%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+Fast+Startup%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CSystem%5D%0D%0A%22HiberbootEnabled%22%3D-%0D%0A%0D%0A%3B+Disable+Font+Providers%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CPolicies%5CMicrosoft%5CWindows%5CSystem%5D%0D%0A%22EnableFontProviders%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows+NT%5CCurrentVersion%5CWindows%5D%0D%0A%22DisableATMFD%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+DataSense%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CPolicyManager%5Cdefault%5CSettings%5CAllowDataSense%5D%0D%0A%22value%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CMicrosoft%5CPolicyManager%5Ccurrent%5Cdevice%5CSettings%5D%0D%0A%22AllowDataSense%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+Shared+Experiences%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CCDP%5D%0D%0A%22CdpSessionUserAuthzPolicy%22%3Ddword%3A00000000%0D%0A%22NearShareChannelUserAuthzPolicy%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+New+App+Toast+Notification+%0D%0A%5BHKEY_LOCAL_MACHINE%5CSOFTWARE%5CPolicies%5CMicrosoft%5CWindows%5CExplorer%5D+%0D%0A%22NoNewAppAlert%22%3Ddword%3A00000001%0D%0A%3B+Disable+WifiSense%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWcmSvc%5Cwifinetworkmanager%5D%0D%0A%22WiFiSenseCredShared%22%3Ddword%3A00000000%0D%0A%22WiFiSenseOpen%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+Windows+Caching+Dll%27s+In+Memory%0D%0A%5BHKEY_LOCAL_MACHINE%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5D%0D%0A%22AlwaysUnloadDLL%22%3Ddword%3A00000001&SystemScriptType2=Reg&DefaultUserScript0=Windows+Registry+Editor+Version+5.00%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CClasses%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CBackgroundAccessApplications%5D%0D%0A%22DisabledByUser%22%3Ddword%3A00000001%0D%0A%22Disabled%22%3Ddword%3A00000001%0D%0A%22GlobalUserDisabled%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CBackgroundAccessApplications%5D%0D%0A%22DisabledByUser%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CNotifications%5CSettings%5D%0D%0A%22NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND%22%3Ddword%3A00000000%0D%0A%22NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK%22%3Ddword%3A00000000%0D%0A%22NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK%22%3Ddword%3A00000000%0D%0A%22NOC_GLOBAL_SETTING_GLEAM_ENABLED%22%3Ddword%3A00000000%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CClipboard%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CWindows+Error+Reporting%5D%0D%0A%0D%0A%22Disabled%22%3Ddword%3A00000001%0D%0A%22GlobalUserDisabled%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+User+Assist%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7B9E04CAB2-CC14-11DF-BB8C-A2F1DED72085%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BA3D53349-6E61-4557-8FC7-0028EDCEEBF6%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BB267E3AD-A825-4A09-82B9-EEC22AA3B847%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BBCB48336-4DDD-48FF-BB0B-D3190DACB3E2%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BCAA59E3C-4792-41A5-9909-6A6A8D32490E%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BCEBFF5CD-ACE2-4F4F-9178-9926F41749EA%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BF2A1CB5A-E3CC-4A2E-AF9D-505A7009D442%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BF4E57C4B-2036-45F0-A9AB-443BCFE33D9F%7D%5D%0D%0A%0D%0A%5B-HKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5C%7BFA99DFC7-6AC2-453A-A5E2-5E2AFF4507BD%7D%5D%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CUserAssist%5CSettings%5D%0D%0A%22NoLog%22%3Ddword%3A00000001%0D%0A%22NoEncrypt%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CPolicies%5CExplorer%5D%0D%0A%22ClearRecentDocsOnExit%22%3Ddword%3A00000001%0D%0A%22NoRecentDocsHistory%22%3Ddword%3A00000001%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CExplorer%5CAdvanced%5D%0D%0A%22Start_TrackDocs%22%3Ddword%3A00000000%0D%0A%22Start_TrackProgs%22%3Ddword%3A00000000%0D%0A%22Start_TrackEnabled%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+Keylogging%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CTabletTip%5C1.7%5D%0D%0A%22EnableAutocorrection%22%3Ddword%3A00000000%0D%0A%22EnableSpellchecking%22%3Ddword%3A00000000%0D%0A%22EnableTextPrediction%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CInputPersonalization%5CTrainedDataStore%5D%0D%0A%22HarvestContacts%22%3Ddword%3A00000000%0D%0A%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CInputPersonalization%5D%0D%0A%22RestrictImplicitInkCollection%22%3Ddword%3A00000001%0D%0A%22RestrictImplicitTextCollection%22%3Ddword%3A00000001%0D%0A%0D%0A%3B+Disable+Spotlight%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSOFTWARE%5CMicrosoft%5CWindows%5CCurrentVersion%5CContentDeliveryManager%5D%0D%0A%22RotatingLockScreenOverlayEnabled%22%3Ddword%3A00000000%0D%0A%0D%0A%3B+Disable+Tracking+of+Broken+Shortcut+Links%0D%0A%5BHKEY_USERS%5CDefaultUser%5CSoftware%5CMicrosoft%5CWindows%5CCurrentVersion%5CPolicies%5CExplorer%5D%0D%0A%22NoResolveTrack%22%3Ddword%3A00000001%0D%0A&DefaultUserScriptType0=Reg&WdacMode=Skip-->
+	<settings pass="offlineServicing"></settings>
+	<settings pass="windowsPE">
+		<component name="Microsoft-Windows-International-Core-WinPE" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<SetupUILanguage>
+				<UILanguage>en-US</UILanguage>
+			</SetupUILanguage>
+			<InputLocale>0409:00000409</InputLocale>
+			<SystemLocale>en-US</SystemLocale>
+			<UILanguage>en-US</UILanguage>
+			<UserLocale>en-US</UserLocale>
+		</component>
+		<component name="Microsoft-Windows-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<UserData>
+				<ProductKey>
+					<Key>M7XTQ-FN8P6-TTKYV-9D4CC-J462D</Key>
+					<WillShowUI>OnError</WillShowUI>
+				</ProductKey>
+				<AcceptEula>true</AcceptEula>
+			</UserData>
+			<UseConfigurationSet>false</UseConfigurationSet>
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo WScript.Echo "Scanning for newly created SYSTEM registry hive file to disable Windows Defender services..."&amp;echo Set fso = CreateObject("Scripting.FileSystemObject"^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo Set existing = CreateObject("Scripting.Dictionary"^)&amp;echo Function Execute(command^)&amp;echo WScript.Echo "Running command '" + command + "'"&amp;echo Set shell = CreateObject("WScript.Shell"^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo Set exec = shell.Exec(command^)&amp;echo Do While exec.Status = 0&amp;echo WScript.Sleep 100&amp;echo Loop&amp;echo WScript.Echo exec.StdOut.ReadAll&amp;echo WScript.Echo exec.StdErr.ReadAll)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>4</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo Execute = exec.ExitCode&amp;echo End Function&amp;echo Function FindHiveFiles&amp;echo Set FindHiveFiles = CreateObject("Scripting.Dictionary"^)&amp;echo For Each drive In fso.Drives)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>5</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo If drive.IsReady And drive.DriveLetter ^&lt;^&gt; "X" Then&amp;echo For Each folder In Array("$Windows.~BT\NewOS\Windows", "Windows"^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>6</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo file = fso.BuildPath(fso.BuildPath(drive.RootFolder, folder^), "System32\config\SYSTEM"^)&amp;echo If fso.FileExists(file^) And fso.FileExists(file + ".LOG1"^) And fso.FileExists(file + ".LOG2"^) Then)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>7</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo FindHiveFiles.Add file, Nothing&amp;echo End If&amp;echo Next&amp;echo End If&amp;echo Next&amp;echo End Function&amp;echo For Each file In FindHiveFiles)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>8</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo WScript.Echo "Will ignore file at '" + file + "' because it was already present when Windows Setup started."&amp;echo existing.Add file, Nothing&amp;echo Next&amp;echo Do)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>9</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo For Each file In FindHiveFiles&amp;echo If Not existing.Exists(file^) Then&amp;echo ret = 1&amp;echo While ret ^&gt; 0&amp;echo WScript.Sleep 500&amp;echo ret = Execute("reg.exe LOAD HKLM\mount " + file^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>10</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo Wend&amp;echo For Each service In Array("Sense", "WdBoot", "WdFilter", "WdNisDrv", "WdNisSvc", "WinDefend"^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>11</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo ret = Execute("reg.exe ADD HKLM\mount\ControlSet001\Services\" + service + " /v Start /t REG_DWORD /d 4 /f"^)&amp;echo Next&amp;echo ret = Execute("reg.exe UNLOAD HKLM\mount"^))"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>12</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo WScript.Echo "Found and successfully modified SYSTEM registry hive file at '" + file + "'. This window will now close."&amp;echo WScript.Sleep 5000&amp;echo Exit Do&amp;echo End If)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>13</Order>
+					<Path>cmd.exe /c "&gt;&gt;"X:\defender.vbs" (echo WScript.Sleep 1000&amp;echo Next&amp;echo Loop)"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>14</Order>
+					<Path>cmd.exe /c "start /MIN cscript.exe //E:vbscript X:\defender.vbs"</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+	</settings>
+	<settings pass="generalize"></settings>
+	<settings pass="specialize">
+		<component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<RunSynchronous>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "$xml = [xml]::new(); $xml.Load('C:\Windows\Panther\unattend.xml'); $sb = [scriptblock]::Create( $xml.unattend.Extensions.ExtractScript ); Invoke-Command -ScriptBlock $sb -ArgumentList $xml;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>2</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\Specialize.ps1' -Raw | Invoke-Expression;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>3</Order>
+					<Path>reg.exe load "HKU\DefaultUser" "C:\Users\Default\NTUSER.DAT"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>4</Order>
+					<Path>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\DefaultUser.ps1' -Raw | Invoke-Expression;"</Path>
+				</RunSynchronousCommand>
+				<RunSynchronousCommand wcm:action="add">
+					<Order>5</Order>
+					<Path>reg.exe unload "HKU\DefaultUser"</Path>
+				</RunSynchronousCommand>
+			</RunSynchronous>
+		</component>
+	</settings>
+	<settings pass="auditSystem"></settings>
+	<settings pass="auditUser"></settings>
+	<settings pass="oobeSystem">
+		<component name="Microsoft-Windows-International-Core" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<InputLocale>0409:00000409</InputLocale>
+			<SystemLocale>en-US</SystemLocale>
+			<UILanguage>en-US</UILanguage>
+			<UserLocale>en-US</UserLocale>
+		</component>
+		<component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS">
+			<UserAccounts>
+				<LocalAccounts>
+					<LocalAccount wcm:action="add">
+						<Name>Admin</Name>
+						<DisplayName></DisplayName>
+						<Group>Administrators</Group>
+						<Password>
+							<Value></Value>
+							<PlainText>true</PlainText>
+						</Password>
+					</LocalAccount>
+					<LocalAccount wcm:action="add">
+						<Name>User</Name>
+						<DisplayName></DisplayName>
+						<Group>Users</Group>
+						<Password>
+							<Value></Value>
+							<PlainText>true</PlainText>
+						</Password>
+					</LocalAccount>
+				</LocalAccounts>
+			</UserAccounts>
+			<AutoLogon>
+				<Username>Admin</Username>
+				<Enabled>true</Enabled>
+				<LogonCount>1</LogonCount>
+				<Password>
+					<Value></Value>
+					<PlainText>true</PlainText>
+				</Password>
+			</AutoLogon>
+			<OOBE>
+				<ProtectYourPC>3</ProtectYourPC>
+				<HideEULAPage>true</HideEULAPage>
+				<HideWirelessSetupInOOBE>false</HideWirelessSetupInOOBE>
+				<HideOnlineAccountScreens>false</HideOnlineAccountScreens>
+			</OOBE>
+			<FirstLogonCommands>
+				<SynchronousCommand wcm:action="add">
+					<Order>1</Order>
+					<CommandLine>powershell.exe -WindowStyle Normal -NoProfile -Command "Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\FirstLogon.ps1' -Raw | Invoke-Expression;"</CommandLine>
+				</SynchronousCommand>
+			</FirstLogonCommands>
+		</component>
+	</settings>
+	<Extensions xmlns="https://schneegans.de/windows/unattend-generator/">
+		<ExtractScript>
+param(
+    [xml] $Document
+);
+
+foreach( $file in $Document.unattend.Extensions.File ) {
+    $path = [System.Environment]::ExpandEnvironmentVariables( $file.GetAttribute( 'path' ) );
+    mkdir -Path( $path | Split-Path -Parent ) -ErrorAction 'SilentlyContinue';
+    $encoding = switch( [System.IO.Path]::GetExtension( $path ) ) {
+        { $_ -in '.ps1', '.xml' } { [System.Text.Encoding]::UTF8; }
+        { $_ -in '.reg', '.vbs', '.js' } { [System.Text.UnicodeEncoding]::new( $false, $true ); }
+        default { [System.Text.Encoding]::Default; }
+    };
+    $bytes = $encoding.GetPreamble() + $encoding.GetBytes( $file.InnerText.Trim() );
+    [System.IO.File]::WriteAllBytes( $path, $bytes );
+}
+		</ExtractScript>
+		<File path="C:\Windows\Setup\Scripts\unattend-01.cmd">
+bcdedit /set nointegritychecks ON
+bcdedit /set loadoptions DISABLE_INTEGRITY_CHECKS
+bcdedit /set TESTSIGNING ON
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-02.reg">
+Windows Registry Editor Version 5.00
+
+;delete "share" from context menu
+[-HKEY_CLASSES_ROOT\*\shellex\ContextMenuHandlers\ModernSharing]
+
+; Delete Previous Versions from the Context Menu
+[-HKEY_CLASSES_ROOT\AllFilesystemObjects\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_CLASSES_ROOT\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_CLASSES_ROOT\Directory\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+[-HKEY_CLASSES_ROOT\Drive\shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}]
+
+;remove "pin to start" from context menu
+[-HKEY_CLASSES_ROOT\Folder\shellex\ContextMenuHandlers\PintoStartScreen]
+[-HKEY_CLASSES_ROOT\exefile\shellex\ContextMenuHandlers\PintoStartScreen]
+
+; Context Menu entries to use RunAsTI - lean and mean snippet by AveYo, 2018-2022 
+; [FEATURES]
+; - innovative HKCU load, no need for reg load / unload ping-pong; programs get the user profile
+; - sets ownership privileges, high priority, and explorer support; get System if TI unavailable        
+; - accepts special characters in paths for which default run as administrator fails
+; - show on the new 11 contextmenu via whitelisted id; plenty other available, fuck needing an app!
+; 2022.04.07: PowerShell / Terminal here (if installed, use Terminal as TI, else use PowerShell as TI)
+
+[-HKEY_CLASSES_ROOT\RunAsTI]
+[-HKEY_CLASSES_ROOT\batfile\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\cmdfile\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\exefile\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\mscfile\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\regfile\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\Folder\shell\setdesktopwallpaper]
+[-HKEY_CLASSES_ROOT\Directory\background\shell\extract]
+; To remove entries, copy paste above into undo_RunAsTI.reg file, then import it
+
+; RunAsTI on .bat
+[HKEY_CLASSES_ROOT\batfile\shell\setdesktopwallpaper]
+"MUIVerb"="Run as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\batfile\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% \"%L\""
+
+; RunAsTI on .cmd
+[HKEY_CLASSES_ROOT\cmdfile\shell\setdesktopwallpaper]
+"MUIVerb"="Run as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\cmdfile\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% \"%L\""
+
+; RunAsTI on .exe
+[HKEY_CLASSES_ROOT\exefile\shell\setdesktopwallpaper]
+"MUIVerb"="Run as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\exefile\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% \"%L\""
+
+; RunAsTI on .msc
+[HKEY_CLASSES_ROOT\mscfile\shell\setdesktopwallpaper]
+"MUIVerb"="Run as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\mscfile\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% \"%L\""
+
+; RunAsTI on .ps1
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\shell\setdesktopwallpaper]
+"MUIVerb"="Run as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% powershell -nop -c iex((gc -lit '%L')-join[char]10)"
+
+; RunAsTI on .reg
+[HKEY_CLASSES_ROOT\regfile\shell\setdesktopwallpaper]
+"MUIVerb"="Import as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\regfile\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% regedit /s \"%L\""
+
+; RunAsTI on Folder
+[HKEY_CLASSES_ROOT\Folder\shell\setdesktopwallpaper]
+"MuiVerb"="Open as trustedinstaller"
+"HasLUAShield"=""
+"Icon"="powershell.exe,0"
+"AppliesTo"="NOT System.ParsingName:=\"::{645FF040-5081-101B-9F08-00AA002F954E}\""
+[HKEY_CLASSES_ROOT\Folder\shell\setdesktopwallpaper\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% \"%L\""
+
+; Open Terminal or Powershell as trustedinstaller here - can spawn another terminal with: cmd /c $env:wt
+[HKEY_CLASSES_ROOT\Directory\background\shell\extract]
+"MuiVerb"="PowerShell / Terminal"
+"HasLUAShield"=""
+"NoWorkingDirectory"=""
+"Position"=-
+"Position"="Middle"
+"Icon"="powershell.exe,0"
+[HKEY_CLASSES_ROOT\Directory\background\shell\extract\command]
+@="C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -win 1 -nop -c iex((10..40|%%{(gp 'Registry::HKCR\\RunAsTI' $_ -ea 0).$_})-join[char]10); # --%% cmd /c pushd \"%V\" &amp; start \"RunAsTI\" %%wt%%"
+
+; RunAsTI function
+[HKEY_CLASSES_ROOT\RunAsTI]
+"10"="function RunAsTI ($cmd,$arg) { $id='RunAsTI'; $key=\"Registry::HKU\\$(((whoami /user)-split' ')[-1])\\Volatile Environment\"; $code=@'"
+"11"=" $I=[int32]; $M=$I.module.gettype(\"System.Runtime.Interop`Services.Mar`shal\"); $P=$I.module.gettype(\"System.Int`Ptr\"); $S=[string]"
+"12"=" $D=@(); $T=@(); $DM=[AppDomain]::CurrentDomain.\"DefineDynami`cAssembly\"(1,1).\"DefineDynami`cModule\"(1); $Z=[uintptr]::size "
+"13"=" 0..5|% {$D += $DM.\"Defin`eType\"(\"AveYo_$_\",1179913,[ValueType])}; $D += [uintptr]; 4..6|% {$D += $D[$_].\"MakeByR`efType\"()}"
+"14"=" $F='kernel','advapi','advapi', ($S,$S,$I,$I,$I,$I,$I,$S,$D[7],$D[8]), ([uintptr],$S,$I,$I,$D[9]),([uintptr],$S,$I,$I,[byte[]],$I)"
+"15"=" 0..2|% {$9=$D[0].\"DefinePInvok`eMethod\"(('CreateProcess','RegOpenKeyEx','RegSetValueEx')[$_],$F[$_]+'32',8214,1,$S,$F[$_+3],1,4)}"
+"16"=" $DF=($P,$I,$P),($I,$I,$I,$I,$P,$D[1]),($I,$S,$S,$S,$I,$I,$I,$I,$I,$I,$I,$I,[int16],[int16],$P,$P,$P,$P),($D[3],$P),($P,$P,$I,$I)"
+"17"=" 1..5|% {$k=$_; $n=1; $DF[$_-1]|% {$9=$D[$k].\"Defin`eField\"('f' + $n++, $_, 6)}}; 0..5|% {$T += $D[$_].\"Creat`eType\"()}"
+"18"=" 0..5|% {nv \"A$_\" ([Activator]::CreateInstance($T[$_])) -fo}; function F ($1,$2) {$T[0].\"G`etMethod\"($1).invoke(0,$2)}"
+"19"=" $TI=(whoami /groups)-like'*1-16-16384*'; $As=0; if(!$cmd) {$cmd='control';$arg='admintools'}; if ($cmd-eq'This PC'){$cmd='file:'}"
+"20"=" if (!$TI) {'TrustedInstaller','lsass','winlogon'|% {if (!$As) {$9=sc.exe start $_; $As=@(get-process -name $_ -ea 0|% {$_})[0]}}"
+"21"=" function M ($1,$2,$3) {$M.\"G`etMethod\"($1,[type[]]$2).invoke(0,$3)}; $H=@(); $Z,(4*$Z+16)|% {$H += M \"AllocHG`lobal\" $I $_}"
+"22"=" M \"WriteInt`Ptr\" ($P,$P) ($H[0],$As.Handle); $A1.f1=131072; $A1.f2=$Z; $A1.f3=$H[0]; $A2.f1=1; $A2.f2=1; $A2.f3=1; $A2.f4=1"
+"23"=" $A2.f6=$A1; $A3.f1=10*$Z+32; $A4.f1=$A3; $A4.f2=$H[1]; M \"StructureTo`Ptr\" ($D[2],$P,[boolean]) (($A2 -as $D[2]),$A4.f2,$false)"
+"24"=" $Run=@($null, \"powershell -win 1 -nop -c iex `$env:R; # $id\", 0, 0, 0, 0x0E080600, 0, $null, ($A4 -as $T[4]), ($A5 -as $T[5]))"
+"25"=" F 'CreateProcess' $Run; return}; $env:R=''; rp $key $id -force; $priv=[diagnostics.process].\"GetM`ember\"('SetPrivilege',42)[0]"
+"26"=" 'SeSecurityPrivilege','SeTakeOwnershipPrivilege','SeBackupPrivilege','SeRestorePrivilege' |% {$priv.Invoke($null, @(\"$_\",2))}"
+"27"=" $HKU=[uintptr][uint32]2147483651; $NT='S-1-5-18'; $reg=($HKU,$NT,8,2,($HKU -as $D[9])); F 'RegOpenKeyEx' $reg; $LNK=$reg[4]"
+"28"=" function L ($1,$2,$3) {sp 'Registry::HKCR\\AppID\\{CDCBCFCA-3CDC-436f-A4E2-0E02075250C2}' 'RunAs' $3 -force -ea 0"
+"29"="  $b=[Text.Encoding]::Unicode.GetBytes(\"\\Registry\\User\\$1\"); F 'RegSetValueEx' @($2,'SymbolicLinkValue',0,6,[byte[]]$b,$b.Length)}"
+"30"=" function Q {[int](gwmi win32_process -filter 'name=\"explorer.exe\"'|?{$_.getownersid().sid-eq$NT}|select -last 1).ProcessId}"
+"31"=" $env:wt='powershell'; dir \"$env:ProgramFiles\\WindowsApps\\Microsoft.WindowsTerminal*\\wt.exe\" -rec|% {$env:wt='\"'+$_.FullName+'\" \"-d .\"'}"
+"32"=" $11bug=($((gwmi Win32_OperatingSystem).BuildNumber)-eq'22000')-AND(($cmd-eq'file:')-OR(test-path -lit $cmd -PathType Container))"
+"33"=" if ($11bug) {'System.Windows.Forms','Microsoft.VisualBasic' |% {$9=[Reflection.Assembly]::LoadWithPartialName(\"'$_\")}}"
+"34"=" if ($11bug) {$path='^(l)'+$($cmd -replace '([\\+\\^\\%\\~\\(\\)\\[\\]])','{$1}')+'{ENTER}'; $cmd='control.exe'; $arg='admintools'}"
+"35"=" L ($key-split'\\\\')[1] $LNK ''; $R=[diagnostics.process]::start($cmd,$arg); if ($R) {$R.PriorityClass='High'; $R.WaitForExit()}"
+"36"=" if ($11bug) {$w=0; do {if($w-gt40){break}; sleep -mi 250;$w++} until (Q); [Microsoft.VisualBasic.Interaction]::AppActivate($(Q))}"
+"37"=" if ($11bug) {[Windows.Forms.SendKeys]::SendWait($path)}; do {sleep 7} while(Q); L '.Default' $LNK 'Interactive User'"
+"38"="'@; $V='';'cmd','arg','id','key'|%{$V+=\"`n`$$_='$($(gv $_ -val)-replace\"'\",\"''\")';\"}; sp $key $id $($V,$code) -type 7 -force -ea 0"
+"39"=" start powershell -args \"-win 1 -nop -c `n$V `$env:R=(gi `$key -ea 0).getvalue(`$id)-join''; iex `$env:R\" -verb runas"
+"40"="}; $A=([environment]::commandline-split'-[-]%+ ?',2)[1]-split'\"([^\"]+)\"|([^ ]+)',2|%{$_.Trim(' \"')}; RunAsTI $A[1] $A[2]; # AveYo, 2022.04.07"
+;
+
+;remove "pin to quick access" from context menu
+[-HKEY_CLASSES_ROOT\Folder\shell\pintohome]
+
+; Add Copy As Path to the Context Menu
+[HKEY_CLASSES_ROOT\Allfilesystemobjects\shell\windows.copyaspath]
+@="Copy &amp;as path"
+"Icon"="imageres.dll,-5302"
+"InvokeCommandOnSelection"=dword:00000001
+"VerbHandler"="{f3d06e7c-1e45-4a26-847e-f9fcdee59be0}"
+"VerbName"="copyaspath"
+
+; Disable DataSense
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowDataSense]
+"value"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Settings]
+"AllowDataSense"=dword:00000000
+
+;Disable Diagnostic Tracing
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Diagnostics\Performance]
+"DisableDiagnosticTracing"=dword:00000001
+
+;Disable Experimentation
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\System]
+
+; Only Use Latest CLR
+[HKEY_LOCAL_MACHINE\Software\Microsoft\.NETFramework]
+"OnlyUseLatestCLR"=dword:00000001
+
+; Disable Group Policy Logging
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{0E28E245-9368-4853-AD84-6DA3BA35BB75}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{17D89FEC-5C44-4972-B12D-241CAEF74509}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{1A6364EB-776B-4120-ADE1-B63A406A76B5}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{3A0DBA37-F8B2-4356-83DE-3E90BD5C261F}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{5794DAFD-BE60-433f-88A2-1A31939AC01F}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{6232C319-91AC-4931-9385-E70C2B099F0E}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{6A4C88C6-C502-4f74-8F60-2CB23EDC24E2}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{7150F9BF-48AD-4da4-A49C-29EF4A8369BA}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{728EE579-943C-4519-9EF7-AB56765798ED}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{74EE6C03-5363-4554-B161-627540339CAB}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{91FBB303-0CD5-4055-BF42-E512A681B325}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{A3F3E39B-5D83-4940-B954-28315B82F0A8}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{AADCED64-746C-4633-A97C-D61349046527}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{B087BE9D-ED37-454f-AF9C-04291E351182}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{BC75B1ED-5833-4858-9BB8-CBF0B166DF9D}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{C418DD9D-0D14-4efb-8FBF-CFE535C8FAC7}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{E47248BA-94CC-49c4-BBB5-9EB7F05183D0}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{E4F48E54-F38D-4884-BFB9-D4D2E5729C18}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{E5094040-C46C-4115-B030-04FB2E545B00}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{E62688F0-25FD-4c90-BFF5-F508B9D2E31F}]
+"LogLevel"=dword:00000000
+"TraceLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Group Policy\{F9C77450-3A41-477E-9310-9ACD617BD9E3}]
+"TraceLevel"=dword:00000000
+"LogLevel"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\Software\WOW6432Node\Microsoft\.NETFramework]
+"OnlyUseLatestCLR"=dword:00000001
+"AllowExperimentation"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\AppModel]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\BluetoothSession]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\Cellcore]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\CloudExperienceHostOobe]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\CShellCircular]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\DefenderApiLogger]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\DefenderAuditLogger]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\DiagLog]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\Diagtrack-Listener]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\FaceRecoTel]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\FaceUnlock]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\iclsClient]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\iclsProxy]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SocketHeciServer]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_CURRENT_USER\System\ControlSet001\Control\WMI\AutoLogger\SQMLogger]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{017BA13C-9A55-4f1f-8200-323055AAC810}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{059F0F37-910E-4FF0-A7EE-AE8D49DD319B}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{093da50c-0bb9-4d7d-b95c-3bb9fcda5ee8}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{2a274310-42d5-4019-b816-e4b8c7abe95c}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{2ff3e6b7-cb90-4700-9621-443f389734ed}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{331c3b3a-2005-44c2-ac5e-77220c37d6b4}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{3e59a529-b0b3-4a11-8129-9ffe6bb46eb9}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{4214dcd2-7c33-4f74-9898-719ccceec20f}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{494e7a3d-8db9-4ec4-b43e-2844af6e38d6}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{61F044AF-9104-4CA5-81EE-CB6C51BB01AB}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{65d99466-7a8e-489c-b8e1-962bc945031e}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{7b563579-53c8-44e7-8236-0f87b9fe6594}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{9c205a39-1250-487d-abd7-e831c6290539}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{a0af438f-4431-41cb-a675-a265050ee947}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{a6ad76e3-867a-4635-91b3-4904ba6374d7}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{CD9C6198-BF73-4106-803B-C17D26559018}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{F5344219-87A4-4399-B14A-E59CD118ABB8}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\Tpm]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\TPMProvisioningService]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\WdiContextLog]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\WiFiDriverIHVSession]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\WinPhoneCritical]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\HolographicDevice]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\Microsoft-Windows-AssignedAccess-Trace]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\NBSMBLOGGER]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\ReadyBoot]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\SQMLogger\{15CA44FF-4D7A-4BAA-BBA5-0998955E531E}]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\WMI\Autologger\WiFiDriverIHVSessionRepro]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Control\WMI\Autologger\AutoLogger-Diagtrack-Listener]
+"Start"=dword:00000000
+"Enabled"=dword:00000000
+"Status"=dword:00000000
+
+; Disable Storage Telemetry
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\StorPort]
+"TelemetryPerformanceEnabled"=dword:00000000
+"TelemetryDeviceHealthEnabled"=dword:00000000
+"TelemetryErrorDataEnabled"=dword:00000000
+
+;Delete Intel Telemetry Aggregator Driver
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Plain\{7B65EBB8-BD4B-4EE0-90EA-5237AF103086}]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Schedule\TaskCache\Tasks\{7B65EBB8-BD4B-4EE0-90EA-5237AF103086}]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles\%SystemRoot%/System32/drivers/IntelTA.sys]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_dual_intelta.inf_31bf3856ad364e35_none_3994430e96793665]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\SideBySide\Winners\amd64_intelta.inf.resources_31bf3856ad364e35_en-us_652bbd3004f55722]
+
+[-HKEY_LOCAL_MACHINE\System\ControlSet001\Services\Telemetry]
+
+[-HKEY_LOCAL_MACHINE\System\DriverDatabase\DeviceIds\PCI\VEN_8086&amp;DEV_9A0D]
+
+[HKEY_LOCAL_MACHINE\System\DriverDatabase\DeviceIds\{4d36e97d-e325-11ce-bfc1-08002be10318}]
+"intelta.inf"=-
+
+[-HKEY_LOCAL_MACHINE\System\DriverDatabase\DriverInfFiles\intelta.inf]
+
+[-HKEY_LOCAL_MACHINE\System\DriverDatabase\DriverPackages\intelta.inf_amd64_ba962d801a22973c]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\DeviceReg]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\DFS]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\LanguageOverlay]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\MSMQ]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Pim]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Poom]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\TermServLicensing]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Unified Store]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\UserData]
+
+; Disabling and or Deleting Windows Error Reporting
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Windows Error Reporting]
+"DontSendAdditionalData"=-
+"DontShowUI"=-
+"LoggingDisabled"=-
+"MachineID"=-
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Windows Error Reporting\ExcludedApplications]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\Windows Error Reporting\WMR]
+
+[-HKEY_LOCAL_MACHINE\Software\Microsoft\XAML]
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}]
+"LastDeleteDate"=hex(3):4F,9A,B4,DE,12,14,DA,01
+
+[-HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Class\{4d36e972-e325-11ce-bfc1-08002be10318}\0000]
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\DeviceContainers\{00000000-0000-0000-FFFF-FFFFFFFFFFFF}\BaseContainers\{00000000-0000-0000-FFFF-FFFFFFFFFFFF}]
+"ROOT\\KDNIC\\0000"=-
+
+[-HKEY_LOCAL_MACHINE\System\ControlSet001\Enum\ROOT\KDNIC]
+
+[-HKEY_LOCAL_MACHINE\System\ControlSet001\Services\EventLog\System\kdnic]
+
+[-HKEY_LOCAL_MACHINE\System\ControlSet001\Services\kdnic]
+
+; Protected Reg Key. No Documentation found for this one but string was confirmed
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Diagnostics\Performance\Suspend]
+"EnableForCEIPOnly"=dword:00000000
+
+; Disable Core Parking
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Power]
+"CoreParkingDisabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Control\Power\PowerSettings\54533251-82be-4824-96c1-47b60b740d00\0cc5b647-c1df-4637-891a-dec35c318583]
+"ValueMax"=dword:00000000
+"ValueMin"=dword:00000000
+
+; Disable IPV6
+; FF to disable all IPv6 components, except the IPv6 loopback interface, which can't be deactivated.
+; 0x01  to disable IPv6 all tunnel interfaces. These include Intra-Site Automatic Tunnel Addressing Protocol (ISATAP), 6to4, and Teredo. If you have a IPv6 router, then you want to choose this one.
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters]
+"DisabledComponents"=dword:000000ff
+
+; Disable Telemetry
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+"DoNotShowFeedbackNotifications"=dword:00000001
+"AllowDeviceNameInTelemetry"=dword:00000000
+"LimitEnhancedDiagnosticDataWindowsAnalytics"=dword:00000000
+"LimitDiagnosticLogCollection"=dword:00000001
+"AllowCommercialDataPipeline"=dword:00000000
+"MicrosoftEdgeDataOptIn"=dword:00000000
+
+; Disable Compatability Telemetry
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\AppCompat]
+"AllowTelemetry"=dword:00000000
+"SbEnable"=dword:00000000
+"DisableWizard"=dword:00000001
+"AITEnable"=dword:00000000
+"DisableEngine"=dword:00000001
+"DisableInventory"=dword:00000001
+"DisablePCA"=dword:00000001
+"DisablePcaUI"=dword:00000000
+"DisableUAR"=dword:00000001
+"VDMDisallowed"=dword:00000001
+
+; Disable System Settings
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"AllowClipboardHistory"=dword:00000000
+"EnableActivityFeed"=dword:00000000
+"PublishUserActivities"=dword:00000000
+"UploadUserActivities"=dword:00000000
+"AllowBlockingAppsAtShutdown"=dword:00000000
+"EnableCdp"=dword:00000000
+"EnableSmartScreen"=dword:00000000
+"EnableFontProviders"=dword:00000000
+"EnableAppUriHandlers"=dword:00000000
+
+; Disable Windows Tips
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+"DisableCloudOptimizedContent"=dword:00000001
+"DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
+"DisableThirdPartySuggestions"=dword:00000001
+"DisableSoftLanding"=dword:00000001
+"DisableWindowsSpotlightFeatures"=dword:00000001
+
+; Disable Performance Counters
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET CLR Data\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET CLR Networking\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET CLR Networking 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET Data Provider for Oracle\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET Data Provider for SqlServer\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NET Memory Cache 4.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\.NETFramework\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ASP.NET_4.0.30319\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\aspnet_state\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\BITS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ContentFilter\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ContentIndex\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ESENT\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Intel Storage Counters\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\IPSec\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ISAPISearch\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Lsa\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\MSDTC\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\MSDTC Bridge 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\MSDTC Bridge 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\MSSCNTRS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\PerfDisk\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\PerfNet\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\PerfOS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\PerfProc\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\rdyboost\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\RemoteAccess\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ServiceModelEndpoint 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ServiceModelOperation 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\ServiceModelService 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\SMSvcHost 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\SMSvcHost 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Spooler\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TapiSrv\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Tcpip\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\TermService\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\UGatherer\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\UGTHRSVC\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\usbhub\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Windows Workflow Foundation 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Windows Workflow Foundation 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\WmiApRpl\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\WSearchIdxPi\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET CLR Data\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET CLR Networking\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET CLR Networking 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET Data Provider for Oracle\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET Data Provider for SqlServer\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NET Memory Cache 4.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\.NETFramework\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ASP.NET_4.0.30319\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\aspnet_state\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\BITS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ContentFilter\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ContentIndex\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ESENT\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Intel Storage Counters\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\IPSec\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ISAPISearch\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Lsa\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\MSDTC\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\MSDTC Bridge 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\MSDTC Bridge 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\MSSCNTRS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\PerfDisk\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\PerfNet\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\PerfOS\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\PerfProc\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\rdyboost\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\RemoteAccess\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ServiceModelEndpoint 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ServiceModelOperation 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\ServiceModelService 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SMSvcHost 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\SMSvcHost 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Spooler\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\TapiSrv\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Tcpip\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\TermService\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\UGatherer\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\UGTHRSVC\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\usbhub\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Windows Workflow Foundation 3.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\Windows Workflow Foundation 4.0.0.0\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\WmiApRpl\Performance]
+"Disable Performance Counters"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\WSearchIdxPi\Performance]
+"Disable Performance Counters"=dword:00000001
+
+; Disable Scheduled diagnostics
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\ScheduledDiagnostics]
+"EnabledExecution"=dword:00000000
+
+; Disable System Debugger (Dr. Watson)
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\AeDebug]
+"Auto"="0"
+
+; Block Exe file with Firewall
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall]
+@=""
+"MUIVerb"="Windows Firewall"
+"icon"="%SystemRoot%\\system32\\FirewallControlPanel.dll,0"
+"subcommands"=""
+
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall\Shell]
+@=""
+
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall\Shell\block]
+@=""
+"MUIVerb"="Block"
+"icon"="%SystemRoot%\\system32\\FirewallControlPanel.dll,1"
+
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall\Shell\block\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -Executionpolicy ByPass -WindowStyle Hidden -NoLogo -Command \"start powershell -Verb runas -ArgumentList \\\"-NoLogo -WindowStyle Hidden -command `\\\"New-NetFirewallRule -DisplayName ([System.IO.Path]::GetFilenameWithoutExtension('%1')) -Name '%1' -Enabled True -Direction Outbound -Action Block -Program '%1'`\\\"\\\"\""
+
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall\Shell\Remove]
+@=""
+"MUIVerb"="Allow"
+"icon"="%SystemRoot%\\system32\\FirewallControlPanel.dll,2"
+
+[HKEY_CLASSES_ROOT\exefile\shell\WindowsFirewall\Shell\Remove\command]
+@="\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -Executionpolicy ByPass -WindowStyle Hidden -NoLogo -Command \"start powershell -Verb runas -ArgumentList \\\"-NoLogo -WindowStyle Hidden -command `\\\"Remove-NetFirewallRule -Name '%1'`\\\"\\\"\""
+
+; Disable Active Probe and Passive Polling
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet]
+"EnableActiveProbing"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator]
+"DisablePassivePolling"=dword:00000001
+"NoActiveProbe"=dword:00000001
+
+; Disable IGMP
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Services\Tcpip\Parameters]
+"IGMPLevel"=dword:00000000
+
+; Disable Fast Startup
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]
+"HiberbootEnabled"=-
+
+; Disable Font Providers
+[HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\System]
+"EnableFontProviders"=dword:00000000
+
+; Disable Adobe Font Manager Driver
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Windows]
+"DisableATMFD"=dword:00000001
+
+; Disable DataSense
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowDataSense]
+"value"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\PolicyManager\current\device\Settings]
+"AllowDataSense"=dword:00000000
+
+; Disable New App Toast Notification 
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Explorer] 
+"NoNewAppAlert"=dword:00000001
+
+; Disable WifiSense
+[HKEY_LOCAL_MACHINE\Software\Microsoft\WcmSvc\wifinetworkmanager]
+"WiFiSenseCredShared"=dword:00000000
+"WiFiSenseOpen"=dword:00000000
+
+; Disable Windows Caching Dll's In Memory
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer]
+"AlwaysUnloadDLL"=dword:00000001
+
+; Disable Background Activity Monitor Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\bam]
+"Start"=dword:00000004
+
+; Disable Desktop Activity Monitor Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\dam]
+"Start"=dword:00000004
+
+; Disable Graphics Performance Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\GraphicsPerfSvc]
+"Start"=dword:00000004
+
+; Disable Language Experience Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\LxpSvc]
+"Start"=dword:00000004
+
+; Disable Maps Broker Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\MapsBroker]
+"Start"=dword:00000004
+
+; Disable Windows Error Reporting Service
+[HKEY_LOCAL_MACHINE\System\ControlSet001\Services\WerSvc]
+"Start"=dword:00000004
+
+; Disable Windows Update Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\wuauserv]
+"Start"=dword:00000004
+
+; Disable WinHTTP Auto Proxy Service 
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WinHttpAutoProxySvc]
+"Start"=dword:00000004
+
+; Disable Windows Search Service
+[HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\WSearch]
+"Start"=dword:00000004
+		</File>
+		<File path="C:\Windows\Setup\Scripts\unattend-03.reg">
+Windows Registry Editor Version 5.00
+
+; Do Not Scan by Folder Type
+[HKEY_USERS\DefaultUser\Software\Classes\Local Settings\Software\Microsoft\Windows\Shell\Bags\AllFolders\Shell]
+"FolderType"="NotSpecified"
+
+[HKEY_USERS\DefaultUser\Software\Classes\Software\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications]
+"DisabledByUser"=dword:00000001
+"Disabled"=dword:00000001
+"GlobalUserDisabled"=dword:00000001
+
+; Disable Shared Experiences
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\CDP]
+"CdpSessionUserAuthzPolicy"=dword:00000000
+"NearShareChannelUserAuthzPolicy"=dword:00000000
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\BackgroundAccessApplications]
+"DisabledByUser"=dword:00000001
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings]
+"NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND"=dword:00000000
+"NOC_GLOBAL_SETTING_ALLOW_TOASTS_ABOVE_LOCK"=dword:00000000
+"NOC_GLOBAL_SETTING_ALLOW_CRITICAL_TOASTS_ABOVE_LOCK"=dword:00000000
+"NOC_GLOBAL_SETTING_GLEAM_ENABLED"=dword:00000000
+
+[-HKEY_USERS\DefaultUser\Software\Microsoft\Clipboard]
+
+[-HKEY_USERS\DefaultUser\Software\Microsoft\Windows\Windows Error Reporting]
+
+; Disable User Assist
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{9E04CAB2-CC14-11DF-BB8C-A2F1DED72085}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{A3D53349-6E61-4557-8FC7-0028EDCEEBF6}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{B267E3AD-A825-4A09-82B9-EEC22AA3B847}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{BCB48336-4DDD-48FF-BB0B-D3190DACB3E2}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{CAA59E3C-4792-41A5-9909-6A6A8D32490E}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{CEBFF5CD-ACE2-4F4F-9178-9926F41749EA}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{F2A1CB5A-E3CC-4A2E-AF9D-505A7009D442}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{F4E57C4B-2036-45F0-A9AB-443BCFE33D9F}]
+
+[-HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{FA99DFC7-6AC2-453A-A5E2-5E2AFF4507BD}]
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\Settings]
+"NoLog"=dword:00000001
+"NoEncrypt"=dword:00000001
+
+; Do not show/save history of opened documents
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"ClearRecentDocsOnExit"=dword:00000001
+"NoRecentDocsHistory"=dword:00000001
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"Start_TrackDocs"=dword:00000000
+"Start_TrackProgs"=dword:00000000
+"Start_TrackEnabled"=dword:00000000
+
+; Disable Keylogging
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\TabletTip\1.7]
+"EnableAutocorrection"=dword:00000000
+"EnableSpellchecking"=dword:00000000
+"EnableTextPrediction"=dword:00000000
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\InputPersonalization\TrainedDataStore]
+"HarvestContacts"=dword:00000000
+
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\InputPersonalization]
+"RestrictImplicitInkCollection"=dword:00000001
+"RestrictImplicitTextCollection"=dword:00000001
+
+; Disable Spotlight
+[HKEY_USERS\DefaultUser\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"RotatingLockScreenOverlayEnabled"=dword:00000000
+
+; Disable Tracking of Broken Shortcut Links
+[HKEY_USERS\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer]
+"NoResolveTrack"=dword:00000001
+		</File>
+		<File path="C:\Windows\Setup\Scripts\Specialize.ps1">
+$scripts = @(
+	{
+		net.exe accounts /maxpwage:UNLIMITED;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Notifications" /v DisableNotifications /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SmartScreenEnabled /t REG_SZ /d "Off" /f;
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components" /v ServiceEnabled /t REG_DWORD /d 0 /f;
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components" /v NotifyMalicious /t REG_DWORD /d 0 /f;
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components" /v NotifyPasswordReuse /t REG_DWORD /d 0 /f;
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\WTDS\Components" /v NotifyUnsafeApp /t REG_DWORD /d 0 /f;
+		reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender Security Center\Systray" /v HideSystray /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v EnableLUA /t REG_DWORD /d 0 /f
+	};
+	{
+		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\FileSystem" /v LongPathsEnabled /t REG_DWORD /d 1 /f
+	};
+	{
+		fsutil.exe behavior set disableLastAccess 1;
+	};
+	{
+		reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Power" /v HiberbootEnabled /t REG_DWORD /d 0 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKLM\Software\Policies\Microsoft\Edge" /v HideFirstRunExperience /t REG_DWORD /d 1 /f;
+	};
+	{
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ControlAnimations" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\AnimateMinMax" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TaskbarAnimations" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DWMAeroPeekEnabled" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\MenuAnimation" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\TooltipAnimation" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\SelectionFade" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DWMSaveThumbnailEnabled" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\CursorShadow" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewShadow" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ThumbnailsOrIcon" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListviewAlphaSelect" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DragFullWindows" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ComboBoxAnimation" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\FontSmoothing" -Name 'DefaultValue' -Value 1 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\ListBoxSmoothScrolling" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+		Set-ItemProperty -LiteralPath "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects\DropShadow" -Name 'DefaultValue' -Value 0 -Type 'DWord' -Force;
+	};
+	{
+		reg.exe add "HKU\.DEFAULT\Control Panel\Accessibility\StickyKeys" /v Flags /t REG_SZ /d 10 /f;
+	};
+	{
+		C:\Windows\Setup\Scripts\unattend-01.cmd;
+	};
+	{
+		reg.exe import "C:\Windows\Setup\Scripts\unattend-02.reg";
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to customize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\Specialize.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\UserOnce.ps1">
+$scripts = @(
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects' -Name 'VisualFXSetting' -Type 'DWord' -Value 3 -Force;
+	};
+	{
+		New-Item -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Force;
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{5399e694-6ce5-4d6c-8fce-1d8870fdcba0}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{b4bfcc3a-db2c-424c-b029-7fe99a87c641}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{a8cdff1c-4878-43be-b5fd-f8091c1c60d0}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{374de290-123f-4565-9164-39c4925e467b}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{f874310e-b6b7-47dc-bc84-b9e6b38f5903}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{1cf1260c-4dd0-4ebb-811f-33c572699fde}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{f02c1a0d-be21-4350-88b0-7367fc96ef3c}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{3add1653-eb32-4cb0-bbd7-dfa0abb5acca}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{645ff040-5081-101b-9f08-00aa002f954e}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{20d04fe0-3aea-1069-a2d8-08002b30309d}' -Value 0 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\ClassicStartMenu' -Name '{a0953c92-50dc-43bf-be83-3742fed03c9c}' -Value 1 -Type 'DWord';
+		New-Item -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Force;
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{5399e694-6ce5-4d6c-8fce-1d8870fdcba0}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{b4bfcc3a-db2c-424c-b029-7fe99a87c641}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{a8cdff1c-4878-43be-b5fd-f8091c1c60d0}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{374de290-123f-4565-9164-39c4925e467b}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{e88865ea-0e1c-4e20-9aa6-edcd0212c87c}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{f874310e-b6b7-47dc-bc84-b9e6b38f5903}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{1cf1260c-4dd0-4ebb-811f-33c572699fde}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{f02c1a0d-be21-4350-88b0-7367fc96ef3c}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{3add1653-eb32-4cb0-bbd7-dfa0abb5acca}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{645ff040-5081-101b-9f08-00aa002f954e}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{20d04fe0-3aea-1069-a2d8-08002b30309d}' -Value 0 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{59031a47-3f72-44a7-89c5-5595fe6b30ee}' -Value 1 -Type 'DWord';
+		Set-ItemProperty -Path 'Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel' -Name '{a0953c92-50dc-43bf-be83-3742fed03c9c}' -Value 1 -Type 'DWord';
+	};
+	{
+		Get-Process -Name 'explorer' -ErrorAction 'SilentlyContinue' | Where-Object -FilterScript {
+			$_.SessionId -eq ( Get-Process -Id $PID ).SessionId;
+		} | Stop-Process -Force;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to configure this user account. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "$env:TEMP\UserOnce.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\DefaultUser.ps1">
+$scripts = @(
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "Hidden" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "ShowSuperHidden" /t REG_DWORD /d 1 /f;
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Edge\SmartScreenEnabled" /ve /t REG_DWORD /d 0 /f;
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Edge\SmartScreenPuaEnabled" /ve /t REG_DWORD /d 0 /f;
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\AppHost" /v EnableWebContentEvaluation /t REG_DWORD /d 0 /f;
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\AppHost" /v PreventOverride /t REG_DWORD /d 0 /f;
+	};
+	{
+		$names = @(
+		  'ContentDeliveryAllowed';
+		  'FeatureManagementEnabled';
+		  'OEMPreInstalledAppsEnabled';
+		  'PreInstalledAppsEnabled';
+		  'PreInstalledAppsEverEnabled';
+		  'SilentInstalledAppsEnabled';
+		  'SoftLandingEnabled';
+		  'SubscribedContentEnabled';
+		  'SubscribedContent-310093Enabled';
+		  'SubscribedContent-338387Enabled';
+		  'SubscribedContent-338388Enabled';
+		  'SubscribedContent-338389Enabled';
+		  'SubscribedContent-338393Enabled';
+		  'SubscribedContent-353694Enabled';
+		  'SubscribedContent-353696Enabled';
+		  'SubscribedContent-353698Enabled';
+		  'SystemPaneSuggestionsEnabled';
+		);
+		
+		foreach( $name in $names ) {
+		  reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v $name /t REG_DWORD /d 0 /f;
+		}
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Control Panel\Accessibility\StickyKeys" /v Flags /t REG_SZ /d 10 /f;
+	};
+	{
+		reg.exe import "C:\Windows\Setup\Scripts\unattend-03.reg";
+	};
+	{
+		reg.exe add "HKU\DefaultUser\Software\Microsoft\Windows\CurrentVersion\RunOnce" /v "UnattendedSetup" /t REG_SZ /d "powershell.exe -WindowStyle Normal -NoProfile -Command \""Get-Content -LiteralPath 'C:\Windows\Setup\Scripts\UserOnce.ps1' -Raw | Invoke-Expression;\""" /f;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to modify the default user&#x2019;&#x2019;s registry hive. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\DefaultUser.log";
+		</File>
+		<File path="C:\Windows\Setup\Scripts\FirstLogon.ps1">
+$scripts = @(
+	{
+		Set-ItemProperty -LiteralPath 'Registry::HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name 'AutoLogonCount' -Type 'DWord' -Force -Value 0;
+	};
+);
+
+&amp; {
+  [float] $complete = 0;
+  [float] $increment = 100 / $scripts.Count;
+  foreach( $script in $scripts ) {
+    Write-Progress -Activity 'Running scripts to finalize your Windows installation. Do not close this window.' -PercentComplete $complete;
+    '*** Will now execute command &#xAB;{0}&#xBB;.' -f $(
+      $str = $script.ToString().Trim() -replace '\s+', ' ';
+      $max = 100;
+      if( $str.Length -le $max ) {
+        $str;
+      } else {
+        $str.Substring( 0, $max - 1 ) + '&#x2026;';
+      }
+    );
+    $start = [datetime]::Now;
+    &amp; $script;
+    '*** Finished executing command after {0:0} ms.' -f [datetime]::Now.Subtract( $start ).TotalMilliseconds;
+    "`r`n" * 3;
+    $complete += $increment;
+  }
+} *&gt;&amp;1 &gt;&gt; "C:\Windows\Setup\Scripts\FirstLogon.log";
+		</File>
+	</Extensions>
+</unattend>
